@@ -4,6 +4,7 @@ const axios = require('axios');
 const ejsLayouts = require('express-ejs-layouts');
 const app = express();
 const port = process.env.PORT || 3000;
+const db = require('./models');
 
 app.use(require('morgan')('dev'));
 app.set('view engine', 'ejs');
@@ -25,6 +26,18 @@ app.use('/pokemon', require('./routes/pokemon'));
 
 const server = app.listen(port, function() {
   console.log('...listening on', port );
+});
+
+db.pokemon
+  .create({
+    name: "Pikachu",
+  })
+  .then(function (poke) {
+    console.log("Created: ", poke.name);
+  });
+
+db.pokemon.findAll().then(function (poke) {
+  console.log("Found: ", poke.name);
 });
 
 module.exports = server;
