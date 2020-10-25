@@ -1,3 +1,26 @@
 <h1>Pokemon Info</h1>
 <h3>Name</h3>
 <p><%=name%></p>
+<h3>Height</h3>
+<p><%=height%></p>
+<h3>Weight</h3>
+<p><%=weight%></p>
+<h3>Moves</h3>
+<ul>
+    <%if(moves.length >= 10) { %>
+        <%for(let i=0; i < 10; i++) { %>
+            <li><%=moves[i].move.name%></li> 
+        <%}%>
+    <% } else { %>
+        <%moves.forEach(move => {%>
+            <li><%=move.move.name%></li>
+        <%})%>
+    <%}%>
+    
+</ul>
+<h4>Abilities</h4>
+<ul>
+    <%abilities.forEach(ability => {%>
+        <li><%=ability.ability.name%></li>
+    <%})%>
+</ul>

@@ -43,11 +43,20 @@ router.get('/:name', function(req, res) {
   axios.get(`http://pokeapi.co/api/v2/pokemon/${req.params.name}`)
   .then(function (apiResponse) {
     const data = {}
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase()+string.slice(1)
+    }
     //list of characteristics to be added to data object
-    data.name = apiResponse.data.name;
+    //data.name = apiResponse.data.name;
+    data.name = capitalizeFirstLetter(apiResponse.data.name);
+    data.moves = apiResponse.data.moves
+    data.abilities = apiResponse.data.abilities
+    data.height = apiResponse.data.height
+    data.weight = apiResponse.data.weight
+    console.log('MOVES INFO--->',data.moves)
     //const pokemonName = apiResponse.data.name;
     //console.log('IS THERE A NAME? ',pokemonName)
-    console.log('here is the pokemon info: ',apiResponse.data)
+    //console.log('here is the pokemon info: ',apiResponse.data)
     res.render('show', data);
   })
   .catch(err => {
