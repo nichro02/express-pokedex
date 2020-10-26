@@ -1,0 +1,14 @@
+body {
+    background-color: lightblue;
+    text-align: center;
+}
+
+button {
+    border-radius: 12px;
+}
+
+
+ul {
+    padding-inline-start: 0;
+}
+

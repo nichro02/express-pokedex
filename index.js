@@ -10,13 +10,15 @@ app.use(require('morgan')('dev'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(ejsLayouts);
+app.use(express.static(__dirname + '/public'))
 
 // GET / - main index of site
 app.get('/', function(req, res) {
-  const pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/';
+  const pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=151';
   // Use request to call the API
   axios.get(pokemonUrl).then( function(apiResponse) {
     const pokemon = apiResponse.data.results;
+    console.log('INDEX RESULTS ---->',pokemon);
     res.render('index', { pokemon: pokemon.slice(0, 151) });
   })
 });

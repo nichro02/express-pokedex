@@ -53,7 +53,9 @@ router.get('/:name', function(req, res) {
     data.abilities = apiResponse.data.abilities
     data.height = apiResponse.data.height
     data.weight = apiResponse.data.weight
+    data.image = apiResponse.data.sprites.other.dream_world.front_default
     console.log('MOVES INFO--->',data.moves)
+    console.log('IMG ---->', data.image)
     //const pokemonName = apiResponse.data.name;
     //console.log('IS THERE A NAME? ',pokemonName)
     //console.log('here is the pokemon info: ',apiResponse.data)
