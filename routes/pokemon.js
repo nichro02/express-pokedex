@@ -57,6 +57,7 @@ router.get('/:name', function(req, res) {
     data.weight = apiResponse.data.weight;
     data.image = apiResponse.data.sprites.other.dream_world.front_default;
     data.type = apiResponse.data.types;
+    data.stats = apiResponse.data.stats;
     console.log('TYPE---->',data.type)
     //console.log('MOVES INFO--->',data.moves)
     console.log('IMG ---->', data.image)

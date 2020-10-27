@@ -12,6 +12,13 @@
 <p><%=height%></p>
 <h3>Weight</h3>
 <p><%=weight%></p>
+<h3>Stats
+    <ul>
+        <%stats.forEach(stat => {%>
+            <li><%=stat.stat.name%>: <%=stat.base_stat%> </li>
+        <%})%>
+    </ul>
+</h3>
 <h3>Moves</h3>
 <ul>
     <%if(moves.length >= 10) { %>
@@ -31,3 +38,7 @@
         <li><%=ability.ability.name%></li>
     <%})%>
 </ul>
+
+<form method="GET" action="/pokemon">
+    <button class="btn btn-primary" type="submit">Back to Favorites</button>
+  </form>

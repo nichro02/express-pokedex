@@ -2,6 +2,10 @@
 
 <% favorites.forEach(pokemon => { %>
     
-    <li><a href="/pokemon/<%=pokemon.name%>"><%=pokemon.name%></a></li>
+    <li><a href="/pokemon/<%=pokemon.name.toLowerCase()%>"><%=pokemon.name%></a></li>
     <br>
 <%})%>
+
+<form method="GET" action="/">
+    <button class="btn btn-primary" type="submit">Back to Pokedex</button>
+  </form>
