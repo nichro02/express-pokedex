@@ -2,6 +2,12 @@
 <img src="<%=image%>" alt ="Picture of Pokemon">
 <h3>Name</h3>
 <p><%=name%></p>
+<h3>Type</h3>
+<ul>
+    <%type.forEach(type => {%>
+        <li><%=type.type.name%></li>
+    <%})%>
+</ul>
 <h3>Height</h3>
 <p><%=height%></p>
 <h3>Weight</h3>

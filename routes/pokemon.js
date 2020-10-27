@@ -8,6 +8,7 @@ router.get('/', function(req, res) {
   // TODO: Get all records from the DB and render to view
   db.pokemon.findAll()
   .then(favorites => {
+    console.log('SQL---->',db.pokemon.findAll())
     res.render('faves.ejs', {favorites: favorites})
   })
 });
@@ -48,13 +49,16 @@ router.get('/:name', function(req, res) {
     }
     //list of characteristics to be added to data object
     //data.name = apiResponse.data.name;
-    data.name = capitalizeFirstLetter(apiResponse.data.name);
-    data.moves = apiResponse.data.moves
-    data.abilities = apiResponse.data.abilities
-    data.height = apiResponse.data.height
-    data.weight = apiResponse.data.weight
-    data.image = apiResponse.data.sprites.other.dream_world.front_default
-    console.log('MOVES INFO--->',data.moves)
+    //data.name = capitalizeFirstLetter(apiResponse.data.name);
+    data.name = apiResponse.data.name;
+    data.moves = apiResponse.data.moves;
+    data.abilities = apiResponse.data.abilities;
+    data.height = apiResponse.data.height;
+    data.weight = apiResponse.data.weight;
+    data.image = apiResponse.data.sprites.other.dream_world.front_default;
+    data.type = apiResponse.data.types;
+    console.log('TYPE---->',data.type)
+    //console.log('MOVES INFO--->',data.moves)
     console.log('IMG ---->', data.image)
     //const pokemonName = apiResponse.data.name;
     //console.log('IS THERE A NAME? ',pokemonName)
