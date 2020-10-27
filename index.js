@@ -16,9 +16,9 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', function(req, res) {
   const pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=151';
   // Use request to call the API
-  axios.get(pokemonUrl).then( function(apiResponse) {
-    const pokemon = apiResponse.data.results;
-    console.log('INDEX RESULTS ---->',pokemon);
+  axios.get(pokemonUrl).then(function(apiResponse) {
+    pokemon = apiResponse.data.results;
+    console.log('INDEX RESULTS ---->',pokemon.slice(0, 151));
     res.render('index', { pokemon: pokemon.slice(0, 151) });
   })
 });
