@@ -7,14 +7,12 @@ const axios = require('axios');
 router.get('/', function(req, res) {
   db.pokemon.findAll()
   .then(favorites => {
-    console.log('FAVES---->',favorites)
     res.render('faves.ejs', {favorites: favorites})
   })
 });
 
 // POST /pokemon - receive the name of a pokemon and add it to the database
 router.post('/', function(req, res) {
-  console.log(req.body)
   db.pokemon.create(req.body)
   .then(createdFave => {
     res.redirect('/pokemon')
