@@ -1,11 +1,15 @@
 <h1>Favorite Pokemon</h1>
 
-<% favorites.forEach(pokemon => { %>
+<% favorites.forEach((pokemon, i) => { %>
     
     <li><a href="/pokemon/<%=pokemon.name.toLowerCase()%>"><%=pokemon.name%></a></li>
+    <br>
+    <form method="POST" action="/pokemon/<%=pokemon.name.toLowerCase()%>/?_method=DELETE">
+        <input type="submit" value="Remove from Favorites">
+    </form>
     <br>
 <%})%>
 
 <form method="GET" action="/">
     <button class="btn btn-primary" type="submit">Back to Pokedex</button>
-  </form>
+</form>

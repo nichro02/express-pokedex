@@ -71,4 +71,15 @@ router.get('/:name', function(req, res) {
   })
 });
 
+//DELETE FAVORITE ROUTE
+router.post('/:name', (req, res) => {
+  console.log('DELETED--->', req.params)
+  db.pokemon.destroy({
+    where: {name: req.params.name}
+  })
+  .then(function () {
+    res.redirect('/pokemon')
+  })
+})
+
 module.exports = router;

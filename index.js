@@ -30,10 +30,10 @@ app.use('/pokemon', require('./routes/pokemon'));
 const server = app.listen(port, function() {
   console.log('...listening on', port );
 });
-
+/*
 db.pokemon
   .create({
-    name: "Pikachu",
+    name: "pikachu",
   })
   .then(function (poke) {
     console.log("Created: ", poke.name);
@@ -42,5 +42,5 @@ db.pokemon
 db.pokemon.findAll().then(function (poke) {
   console.log("Found: ", poke.name);
 });
-
+*/
 module.exports = server;
